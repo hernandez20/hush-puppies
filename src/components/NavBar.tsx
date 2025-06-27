@@ -7,6 +7,7 @@ import CartDropdown from "@/components/CartDropdown"
 export default function Navbar() {
   return (
     <header className="w-full border-b border-gray-300 relative z-50">
+      
       <DiscountAnnouncement message="HOT SALE -30% EN SANDALIAS" />
 
       <div className="bg-gray-300 text-gray-700 font-bold text-[8px] sm:text-xs sm:px-6 py-3 flex flex-row-reverse  gap-4">
@@ -23,7 +24,9 @@ export default function Navbar() {
           </div>
 
           <div className="flex flex-col items-center sm:items-end gap-2 w-full sm:w-auto">
+            
             <InputField placeholder="BUSCAR" onSubmit={() => console.log("Buscar")} icon={<IoIosArrowForward />} />
+            
             <p className="text-xs text-[#6E434F] font-semibold text-center sm:text-right">
               ENVÍO GRATIS PARA PEDIDOS SUPERIORES A $300.000
             </p>
@@ -38,7 +41,9 @@ export default function Navbar() {
             <a href="#">HISTORIA</a>
             <a href="#">TIENDAS</a>
           </nav>
+
           <CartDropdown />
+          
         </div>
       </div>
     </header>

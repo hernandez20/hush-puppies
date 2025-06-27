@@ -1,12 +1,4 @@
-interface InputFieldProps {
-    placeholder: string;
-    value?: string;
-    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    onSubmit?: () => void;
-    type?: "text" | "email";
-    buttonText?: string;
-    icon?: React.ReactNode;
-}
+import type { InputFieldProps } from "@/types/types";
 
 export default function InputField({placeholder, value, onChange, onSubmit, type = "text", buttonText, icon}: InputFieldProps) {
     return (

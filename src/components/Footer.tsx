@@ -9,7 +9,9 @@ import CorporationLogos from "./CorporationLogos";
 export default function Footer() {
   return (
     <footer className=" text-gray-800 text-sm pt-6">
+      
       <SocialBanner />
+
       <div className="flex flex-col md:flex-row justify-center text-left gap-8 px-6 sm:px-10 md:px-20 py-6 ">
         <div>
           <h3 className="font-semibold mb-2 font-georgia">SERVICIO AL CLIENTE</h3>

@@ -1,15 +1,7 @@
-import type { Product } from "@/types/types"
 import { FaHeart } from "react-icons/fa"
+import type { ProductCardProps } from "@/types/types"
 
-interface Props {
-  producto: Product
-  isFavorite?: boolean
-  onAddToCart?: () => void
-  onToggleFavorite?: () => void
-  onClick?: () => void
-}
-
-export default function ProductCard({ producto, isFavorite, onAddToCart, onToggleFavorite, onClick}: Props) {
+export default function ProductCard({ producto, isFavorite, onAddToCart, onToggleFavorite, onClick}: ProductCardProps) {
 
   const imgSrc = `img/products/${producto.foto}`
 

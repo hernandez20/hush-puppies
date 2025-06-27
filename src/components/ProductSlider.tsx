@@ -1,18 +1,14 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useKeenSlider } from "keen-slider/react"
-import type { Product } from "@/types/types"
 import ProductCard from "@/components/ProductCard"
 import type { RootState } from "@/redux/store"
 import { addToCart } from "@/redux/slices/cartSlice"
 import { toggleFavorite } from "@/redux/slices/favoritesSlice"
 
-interface Props {
-  products: Product[]
-  onProductClick: (product: Product) => void
-}
+import type { ProductSliderProps } from "@/types/types"
 
-export default function ProductSlider({ products, onProductClick }: Props) {
+export default function ProductSlider({ products, onProductClick }: ProductSliderProps) {
   const dispatch = useDispatch()
   const favoritos = useSelector((state: RootState) => state.favorites.items)
 
