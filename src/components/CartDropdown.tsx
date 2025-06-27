@@ -15,17 +15,14 @@ export default function CartDropdown() {
   const [showCart, setShowCart] = useState(false)
 
   return (
-    <div
-      className="relative cursor-pointer"
-      onMouseEnter={() => setShowCart(true)}
-      onMouseLeave={() => setShowCart(false)}
-    >
+    <div className="relative cursor-pointer" onMouseEnter={() => setShowCart(true)} onMouseLeave={() => setShowCart(false)} >
+
       <div className="flex items-center gap-1">
         <IoBag className="text-yellow-600" />
         <span className="font-semibold">CARRITO</span>
         <span className="ml-1 text-sm">({items.length})</span>
         <span className="ml-2 text-sm text-[#6E434F] font-bold">
-          ${total.toLocaleString('es-CO')}
+          ${total.toLocaleString('en-US')}
         </span>
       </div>
 
@@ -58,7 +55,7 @@ export default function CartDropdown() {
                 <div className="text-right">
                   <p className="font-semibold">x{item.cantidad}</p>
                   <p className="text-xs text-gray-600">
-                    ${item.producto.precio.toLocaleString("es-CO")}
+                    ${item.producto.precio.toLocaleString("en-US")}
                   </p>
                 </div>
               </li>

@@ -1,9 +1,6 @@
+import type { messageProps } from "@/types/types"
 
-interface props {
-  message?: string
-}
-
-export default function DiscountAnnouncement({ message }:props) {
+export default function DiscountAnnouncement({ message }:messageProps) {
   if (!message) return null
 
   return (

@@ -49,3 +49,8 @@ export interface CartItem {
 export interface CartState {
   items: CartItem[]
 }
+
+
+export interface messageProps {
+  message?: string
+}

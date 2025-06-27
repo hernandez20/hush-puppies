@@ -40,7 +40,6 @@ export default function Footer() {
           <h3 className="font-semibold mb-2 font-georgia">NEWSLETTER</h3>
           <p className="mb-2">Regístrate para ser el primero en recibir nuestras noticias</p>
 
-
           <InputField placeholder="E-MAIl" onSubmit={() => console.log("Suscribirse")} icon={<IoIosArrowForward />}
           />
         </div>

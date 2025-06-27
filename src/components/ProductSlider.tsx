@@ -30,12 +30,11 @@ export default function ProductSlider({ products, onProductClick }: ProductSlide
 
   return (
     <section className="mt-12">
-      <div ref={sliderRef} className="keen-slider">
-        {products.map((prod) => {
-          const isFavorite = favoritos.some((f) => f.id === prod.id)
+      <div className="keen-slider" ref={sliderRef} >
+        {products.map((prod) => { const isFavorite = favoritos.some((f) => f.id === prod.id)
 
           return (
-            <div key={prod.id} className="keen-slider__slide">
+            <div className="keen-slider__slide" key={prod.id} >
               <ProductCard
                 producto={prod}
                 isFavorite={isFavorite}
@@ -48,8 +47,7 @@ export default function ProductSlider({ products, onProductClick }: ProductSlide
                     talla: 38, 
                     color: "Brown" 
                   }))
-                }
-              />
+                }/>
             </div>
           )
         })}

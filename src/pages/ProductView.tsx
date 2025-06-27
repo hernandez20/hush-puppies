@@ -9,7 +9,12 @@ import { addToCart } from "@/redux/slices/cartSlice"
 import { toggleFavorite } from "@/redux/slices/favoritesSlice"
 import type { RootState } from "@/redux/store"
 
-const tallasDisponibles = [36, 37, 38, 39, 40, 41, 42]
+const availableSizes = [36, 37, 38, 39, 40, 41, 42]
+const colorList = [
+  { colorCode: "#E2A847", colorName: "Yellow" },
+  { colorCode: "#C4A484", colorName: "Brown" }
+]
+/** Esta info debería venir por cada producto pero al no estar disponible se queda estática  */
 
 const mapRawToProduct = (raw: RawProduct, index: number): Product => ({
   id: `producto-${index}`,
@@ -20,20 +25,16 @@ const mapRawToProduct = (raw: RawProduct, index: number): Product => ({
 })
 
 const ProductView: React.FC = () => {
+
   const dispatch = useDispatch()
   const data: Product[] = rawData.map(mapRawToProduct)
-
-  const colorList = [
-    { colorCode: "#E2A847", colorName: "Yellow" },
-    { colorCode: "#C4A484", colorName: "Brown" }
-  ]
 
   const [productoActual, setProductoActual] = useState<Product>(data[0])
   const [tallaSeleccionada, setTallaSeleccionada] = useState<number | null>(null)
   const tallaRef = useRef(tallaSeleccionada)
 
   const favoritos = useSelector((state: RootState) => state.favorites.items)
-  const esFavorito = favoritos.some(p => p.id === productoActual.id)
+  const isFavorite = favoritos.some(p => p.id === productoActual.id)
 
   useEffect(() => {
     setTallaSeleccionada(null)
@@ -68,11 +69,10 @@ const ProductView: React.FC = () => {
 
         <div className="flex-1 space-y-4 font-semibold">
 
-
           <div className="flex flex-col">
             <h1 className="text-2xl  font-georgia">{productoActual.nombre}</h1>
             <p className="text-xl  text-[#6E434F] font-georgia">
-              ${productoActual.precio.toLocaleString("es-CO")}
+              ${productoActual.precio.toLocaleString("en-US")}
             </p>
             <p className="text-sm  text-gray-400"> Cod. de producto zap- productoActual. {productoActual.referencia}</p>
           </div>
@@ -97,7 +97,7 @@ const ProductView: React.FC = () => {
           <div>
             <h3 className="font-semibold text-sm">TALLA</h3>
             <div className="flex flex-wrap gap-2">
-              {tallasDisponibles.map((talla) => (
+              {availableSizes.map((talla) => (
                 <button
                   key={talla}
                   className={`border px-4 py-2 w-[50px] h-[50px] ${tallaSeleccionada === talla
@@ -136,21 +136,22 @@ const ProductView: React.FC = () => {
               className="text-gray-400 hover:text-deepTuscanRed  py-2"
               aria-label="Marcar como favorito"
             >
-              <FaHeart className={esFavorito ? "text-deepTuscanRed" : "text-gray-300"} />
+              <FaHeart className={isFavorite ? "text-deepTuscanRed" : "text-gray-300"} />
             </button>
           </div>
+
         </div>
       </div>
 
       <div className="mt-10 text-sm text-gray-700 font-semibold">
         <h4 className="font-bold mb-1 font-georgia ">DETALLES DEL PRODUCTO</h4>
-        <div className="w-full h-[2px] bg-gray-200 mb-5"></div>
+        <hr className="border-t-2 border-gray-200 my-5" />
         <p className="mb-4">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sollicitudin nunc augue. Aliquam feugiat lacinia ante, a hendrerit ipsum commodo id. Mauris tellus est, iaculis ac enim id, elementum pellentesque velit. Mauris commodo quam porttitor dolor eleifend, non porttitor ipsum lacinia. Duis nunc elit, tincidunt id magna a, condimentum auctor metus. In hac habitasse platea dictumst. Sed id elementum justo.
         </p>
 
         <h4 className="font-bold mb-1 font-georgia">TECNOLOGÍAS</h4>
-        <div className="w-full h-[2px] bg-gray-200 mb-5"></div>
+        <hr className="border-t-2 border-gray-200 my-5" />
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sollicitudin nunc augue. Aliquam feugiat lacinia ante, a hendrerit ipsum commodo id. Mauris tellus est, iaculis ac enim id, elementum pellentesque velit. Mauris commodo quam porttitor dolor eleifend, non porttitor ipsum lacinia. Duis nunc elit, tincidunt id magna a, condimentum auctor metus. In hac habitasse platea dictumst. Sed id elementum justo.
         </p>
