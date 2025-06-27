@@ -165,8 +165,7 @@ const ProductView: React.FC = () => {
           setTimeout(() => {
             window.scrollTo({ top: 0, behavior: "smooth" })
           }, 100)
-        }}
-      />
+        }}/>
 
       <h2 className="font-georgia font-semibold border-b py-1">PRODUCTOS RECOMENDADOS</h2>
       <ProductSlider
@@ -176,8 +175,7 @@ const ProductView: React.FC = () => {
           setTimeout(() => {
             window.scrollTo({ top: 0, behavior: "smooth" })
           }, 100)
-        }}
-      />
+        }}/>
     </div>
   )
 }
