@@ -19,11 +19,8 @@ export default function CartDropdown() {
 
       <div className="flex items-center gap-1">
         <IoBag className="text-yellow-600" />
-        <span className="font-semibold">CARRITO</span>
-        <span className="ml-1 text-sm">({items.length})</span>
-        <span className="ml-2 text-sm text-[#6E434F] font-bold">
-          ${total.toLocaleString('en-US')}
-        </span>
+        <span className="font-semibold">CARRITO  ({items.length})</span>
+        <span className="ml-2 text-sm text-deepTuscanRed font-bold">${total.toLocaleString('en-US')}</span>
       </div>
 
       {showCart && items.length > 0 && (
@@ -32,12 +29,12 @@ export default function CartDropdown() {
           <ul className="max-h-60 overflow-y-auto">
             {items.map((item, index) => (
               <li key={index} className="border-b py-2 flex justify-between gap-2">
-                <div>
+                <div className="text-xs">
                   <p className="font-medium">{item.producto.nombre}</p>
-                  <p className="text-gray-500 text-xs">
+                  <p className="text-gray-500">
                     Talla: {item.talla} - Color: {item.color}
                   </p>
-                  <div className="flex gap-2 mt-1 text-xs">
+                  <div className="flex gap-2 mt-1">
                     <button
                       onClick={() => dispatch(decreaseQuantity(item))}
                       className=" px-2 py-1 rounded hover:bg-gray-300"
